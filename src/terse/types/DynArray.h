@@ -51,7 +51,7 @@ public:
     DynArray(std::size_t size, const allocator_type& allocator = allocator_type{}) :
         alloc{allocator},
         sz{size},
-        ptr{create(sz, alloc)} {
+        ptr{size > 0 ? create(sz, alloc) : pointer_type{}} {
     }
 
     DynArray(std::size_t size, const value_type& value, const allocator_type& allocator = allocator_type{}) :
